@@ -15,8 +15,24 @@ import PostAddIcon from '@material-ui/icons/PostAdd';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import RssFeedIcon from '@material-ui/icons/RssFeed';
+import logo from '../components/images/logo.png';
 
 const useStyles = makeStyles((theme) => ({
+    logo: {
+        maxWidth: 120,
+        padding: '1rem'
+    },
+    heading: {
+        textAlign: 'center',
+        backgroundColor: 'white',
+        padding: '.5rem',
+        opacity: .80,
+        color: 'deepskyblue',
+        '& h4': {
+            marginTop: '-1rem',
+            color: 'black'
+        }
+    },
     grow: {
         flexGrow: 1,
     },
@@ -174,7 +190,7 @@ const Header = () => {
 
     return (
         <div className={classes.grow}>
-            <AppBar position="static">
+            <AppBar position="" color="inherit">
                 <Toolbar>
                     <IconButton
                         edge="start"
@@ -184,9 +200,11 @@ const Header = () => {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography className={classes.title} variant="h6" noWrap>
-                        Posts Forum
-            </Typography>
+
+                    <Toolbar>
+                        <img src={logo} alt="post forum logo" className={classes.logo} />
+                    </Toolbar>
+
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
                             <SearchIcon />
@@ -243,6 +261,11 @@ const Header = () => {
             </AppBar>
             {renderMobileMenu}
             {renderMenu}
+            <div className={classes.heading}>
+                <h1>Welcome to Post Forum</h1>
+                <h4>This is a social platform in which you can see the posts, like, shares within seconds. So Hurry up and enjoy with different walks of human life!</h4>
+            </div>
+
         </div>
     );
 };
