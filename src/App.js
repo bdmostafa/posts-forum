@@ -14,31 +14,18 @@ import Footer from './components/Home';
 
 function App() {
   // Store the data
-  const [posts, setposts] = useState([]);
-
-  // Fetch the data
-  const loadData = () => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
-      .then(res => res.json())
-      .then(data => setposts(data))
-  }
-
-  // useEffect hook executes when page is loaded
-  useEffect(loadData, [])
+  const [posts, setPosts] = useState([]);
 
   return (
     <Router>
       <Header />
       <Switch>
         <Route path="/home">
-          <Home />
+          <Home posts={posts} setPosts={setPosts}/>
         </Route>
-        <Route exact path="/">
+        {/* <Route exact path="/">
           <Home />
-        </Route>
-        <Route path="/posts">
-          <Home />
-        </Route>
+        </Route> */}
         <Route path="/post/:postId">
           <PostDetail />
         </Route>
