@@ -6,6 +6,9 @@ import { makeStyles } from '@material-ui/core/styles';
 
 // Material UI styles
 const useStyles = makeStyles((theme) => ({
+    bg: {
+        backgroundColor: 'lightcyan'
+    },
     button: {
         margin: theme.spacing(2),
     },
@@ -16,7 +19,7 @@ const Posts = ({ post: { id, title, body } }) => {
     const classes = useStyles();
 
     return (
-        <Container>
+        <Container className={classes.bg}>
             <ListItem>
                 <ListItemText primary={title} secondary={body} />
             </ListItem>

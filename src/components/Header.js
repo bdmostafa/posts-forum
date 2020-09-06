@@ -191,7 +191,7 @@ const Header = () => {
 
     return (
         <div className={classes.grow}>
-            <AppBar position="" color="inherit">
+            <AppBar position="static" color="inherit">
                 <Toolbar>
                     <IconButton
                         edge="start"

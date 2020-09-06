@@ -1,10 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Comments from './Comments';
-import { Container, ListItem, ListItemText, Divider, Button } from '@material-ui/core';
+import { Container, ListItem, ListItemText, Button } from '@material-ui/core';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import ShareIcon from '@material-ui/icons/Share';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import { makeStyles } from '@material-ui/core/styles';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import FormControl from '@material-ui/core/FormControl';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import SendIcon from '@material-ui/icons/Send';
+
+// Material UI Styles
+const useStyles = makeStyles((theme) => ({
+    margin: {
+        margin: theme.spacing(1),
+    },
+}));
 
 const PostDetail = () => {
     const { postId } = useParams();
@@ -45,8 +60,10 @@ const PostDetail = () => {
 
     // console.log(comments);
 
+
+    const classes = useStyles();
     return (
-        <Container>
+        <Container style={{ backgroundColor: 'lightcyan', padding: '1.5rem' }}>
             <ListItem>
                 <ListItemText primary={title} secondary={body} />
             </ListItem>
@@ -54,7 +71,7 @@ const PostDetail = () => {
                 variant="contained"
                 color="default"
             >
-            <ChatBubbleOutlineIcon />    {comments.length} Comments 
+                <ChatBubbleOutlineIcon />    {comments.length} Comments
             </Button>
             <Button
                 variant="contained"
@@ -63,7 +80,7 @@ const PostDetail = () => {
                 onClick={increaseLike}
             >
 
-                <ThumbUpAltIcon />  { like } Likes
+                <ThumbUpAltIcon />  {like} Likes
             </Button>
             <Button
                 variant="contained"
@@ -71,13 +88,21 @@ const PostDetail = () => {
                 style={{ marginLeft: '10px' }}
                 onClick={increaseShare}
             >
-             <ShareIcon />   {share} Shares 
+                <ShareIcon />   {share} Shares
             </Button>
             <br /><br />
-            <Divider />
+            <h2>Comments</h2>
             {
                 comments && comments.map(comment => <Comments key={comment.id} comment={comment} ></Comments>)
             }
+            <Link to="/" style={{ textDecoration: 'none', marginLeft: '1.5rem' }}>
+                <Button
+                    variant="contained"
+                    color="primary"
+                >
+                    <ArrowBackIcon />  Go Back
+                </Button>
+            </Link>
         </Container>
     );
 };

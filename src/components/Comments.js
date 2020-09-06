@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import { Container, ListItemIcon } from '@material-ui/core';
 import ShareIcon from '@material-ui/icons/Share';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
+import ReplyIcon from '@material-ui/icons/Reply';
 
 
 // Material UI styles and modifications
@@ -21,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
     },
     block: {
         display: 'block',
+    },
+    margin: {
+        margin: theme.spacing(1),
     },
 }));
 
@@ -59,6 +63,7 @@ const Comments = ({ comment: { id, name, email, body } }) => {
                         }
                     />
                     <ListItemIcon >
+                        <ReplyIcon />
                         <ShareIcon />
                         <ThumbUpAltIcon />
                     </ListItemIcon>

@@ -1,12 +1,14 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import Posts from './Posts';
 import { PostContext } from '../App';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import { Container } from '@material-ui/core';
 
-const Home = ({ posts, setPosts }) => {
+const Home = ( { posts, setPosts }) => {
     // const [posts, setPosts] = useContext(PostContext);
+    // Store the data
+    // const [posts, setPosts] = useState([]);
 
     // Fetch the data
     const loadData = () => {
@@ -20,8 +22,6 @@ const Home = ({ posts, setPosts }) => {
     // useEffect hook executes when page is loaded
     useEffect(loadData, []);
 
-    // const fakeData = [...androids, ...cameras, ...laptops];
-
     // Function to generate posts randomly
     const shuffle = a => {
         for (let i = a.length; i; i--) {
@@ -30,7 +30,7 @@ const Home = ({ posts, setPosts }) => {
         }
     }
     posts && shuffle(posts);
-    
+
     // Material UI Style and Modifications
     const useStyles = makeStyles((theme) => ({
         root: {
@@ -45,8 +45,6 @@ const Home = ({ posts, setPosts }) => {
 
     return (
         <Container>
-            <h2>Total Post Found: {posts && posts.length} </h2>
-            <h2>Randomly Generated Posts: 15</h2>
             <List className={classes.root}>
                 {
                     posts && posts.map(post => <Posts key={post.id} post={post}></Posts>)
