@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -10,11 +9,11 @@ import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import { Container } from '@material-ui/core';
 
-
+// Material UI styles and modifications
 const useStyles = makeStyles((theme) => ({
     root: {
         width: '100%',
-        maxWidth: '36ch',
+        maxWidth: '100%',
         backgroundColor: theme.palette.background.paper,
     },
     block: {
@@ -26,16 +25,23 @@ const useStyles = makeStyles((theme) => ({
 
 // Nested destructuring the essential properties of comment object
 const Comments = ({ comment: { id, name, email, body } }) => {
-    console.log(id, name, email, body)
-
-
+    // console.log(id, name, email, body);
     const classes = useStyles();
+
+    // Process Images
+    const [image, setImage] = useState();
+    useEffect(() => {
+        setImage(`https://source.unsplash.com/random?${id}`);
+        // setImage(`https://api.adorable.io/avatars/285/${id}.png`);
+    }, [id])
+
+console.log(id)
     return (
         <Container>
             <List className={classes.root}>
                 <ListItem alignItems="flex-start">
                     <ListItemAvatar>
-                        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                        <Avatar alt="Remy Sharp" src={image} />
                     </ListItemAvatar>
                     <ListItemText
                         primary={name}
@@ -57,7 +63,6 @@ const Comments = ({ comment: { id, name, email, body } }) => {
                 <Divider variant="inset" component="li" />
             </List>
         </Container>
-
     );
 };
 

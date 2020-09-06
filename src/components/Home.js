@@ -14,19 +14,17 @@ const Home = ({ posts, setPosts }) => {
             .then(res => res.json())
             .then(data => setPosts(data))
             .catch(err => console.log(err))
-
-
     }
     // console.log(posts);
 
     // useEffect hook executes when page is loaded
     useEffect(loadData, [])
 
-    // Material UI Code
+    // Material UI Style and Modifications
     const useStyles = makeStyles((theme) => ({
         root: {
             width: '100%',
-            maxWidth: 360,
+            maxWidth: '100%',
             backgroundColor: theme.palette.background.paper,
         },
     }));

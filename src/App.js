@@ -10,7 +10,6 @@ import Home from './components/Home';
 import NoMatch from './components/NoMatch';
 import PostDetail from './components/PostDetail';
 import Footer from './components/Home';
-import Comments from './components/Comments';
 
 export const PostContext = createContext();
 
@@ -32,9 +31,6 @@ function App() {
           <Route path="/post/:postId">
             <PostDetail />
           </Route>
-          {/* <Route path="/comments/:postId">
-            <Comments />
-          </Route> */}
           <Route path="*">
             <NoMatch />
           </Route>
