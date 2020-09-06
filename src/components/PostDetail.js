@@ -6,20 +6,6 @@ import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import ShareIcon from '@material-ui/icons/Share';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import { makeStyles } from '@material-ui/core/styles';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import FormControl from '@material-ui/core/FormControl';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import SendIcon from '@material-ui/icons/Send';
-
-// Material UI Styles
-const useStyles = makeStyles((theme) => ({
-    margin: {
-        margin: theme.spacing(1),
-    },
-}));
 
 const PostDetail = () => {
     const { postId } = useParams();
@@ -60,8 +46,6 @@ const PostDetail = () => {
 
     // console.log(comments);
 
-
-    const classes = useStyles();
     return (
         <Container style={{ backgroundColor: 'lightcyan', padding: '1.5rem' }}>
             <ListItem>

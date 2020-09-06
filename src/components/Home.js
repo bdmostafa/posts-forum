@@ -4,10 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import { Container } from '@material-ui/core';
 
-const Home = ( { posts, setPosts }) => {
+const Home = ({ posts, setPosts }) => {
     // const [posts, setPosts] = useContext(PostContext);
-    // Store the data
-    // const [posts, setPosts] = useState([]);
 
     // Fetch the data
     const loadData = () => {
@@ -40,7 +38,6 @@ const Home = ( { posts, setPosts }) => {
     }));
 
     const classes = useStyles();
-
 
     return (
         <Container>

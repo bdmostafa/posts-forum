@@ -3,7 +3,6 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -18,6 +17,7 @@ import RssFeedIcon from '@material-ui/icons/RssFeed';
 import logo from '../components/images/logo.png';
 import { Link } from 'react-router-dom';
 
+// Material UI Styles and Modifications
 const useStyles = makeStyles((theme) => ({
     logo: {
         maxWidth: 120,
@@ -266,7 +266,6 @@ const Header = () => {
                 <h1>Welcome to Post Forum</h1>
                 <h4>This is a social platform in which you can see the posts, like, shares within seconds. So Hurry up and enjoy with different walks of human life!</h4>
             </div>
-
         </div>
     );
 };

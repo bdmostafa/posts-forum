@@ -33,11 +33,12 @@ const Comments = ({ comment: { id, name, email, body } }) => {
     // console.log(id, name, email, body);
     const classes = useStyles();
 
-    // Generate unique images randomly
+    // Generate unique images randomly for every comment
     const [image, setImage] = useState();
     useEffect(() => {
         setImage(`https://source.unsplash.com/random?${id}`);
     }, [id])
+
 
     return (
         <Container>
@@ -68,9 +69,6 @@ const Comments = ({ comment: { id, name, email, body } }) => {
                         <ThumbUpAltIcon />
                     </ListItemIcon>
                 </ListItem>
-
-
-
                 <Divider />
             </List>
         </Container>
