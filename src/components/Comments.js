@@ -7,7 +7,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-import { Container } from '@material-ui/core';
+import { Container, ListItemIcon } from '@material-ui/core';
+import ShareIcon from '@material-ui/icons/Share';
+import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
+
 
 // Material UI styles and modifications
 const useStyles = makeStyles((theme) => ({
@@ -21,21 +24,17 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-
-
 // Nested destructuring the essential properties of comment object
 const Comments = ({ comment: { id, name, email, body } }) => {
     // console.log(id, name, email, body);
     const classes = useStyles();
 
-    // Process Images
+    // Generate unique images randomly
     const [image, setImage] = useState();
     useEffect(() => {
         setImage(`https://source.unsplash.com/random?${id}`);
-        // setImage(`https://api.adorable.io/avatars/285/${id}.png`);
     }, [id])
 
-console.log(id)
     return (
         <Container>
             <List className={classes.root}>
@@ -59,8 +58,15 @@ console.log(id)
                             </React.Fragment>
                         }
                     />
+                    <ListItemIcon >
+                        <ShareIcon />
+                        <ThumbUpAltIcon />
+                    </ListItemIcon>
                 </ListItem>
-                <Divider variant="inset" component="li" />
+
+
+
+                <Divider />
             </List>
         </Container>
     );

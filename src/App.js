@@ -5,7 +5,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import Header from './components/Home';
+import Header from './components/Header';
 import Home from './components/Home';
 import NoMatch from './components/NoMatch';
 import PostDetail from './components/PostDetail';
@@ -22,7 +22,7 @@ function App() {
       <Header />
       {/* <PostContext.Provider value={[posts, setPosts]}> */}
         <Switch>
-          <Route path="/home">
+          <Route exact path="/home">
             <Home posts={posts} setPosts={setPosts} />
           </Route>
           <Route exact path="/">
