@@ -16,6 +16,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import RssFeedIcon from '@material-ui/icons/RssFeed';
 import logo from '../components/images/logo.png';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     logo: {
@@ -202,7 +203,7 @@ const Header = () => {
                     </IconButton>
 
                     <Toolbar>
-                        <img src={logo} alt="post forum logo" className={classes.logo} />
+                        <Link to="/"> <img src={logo} alt="post forum logo" className={classes.logo} /> </Link>
                     </Toolbar>
 
                     <div className={classes.search}>
