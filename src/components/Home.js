@@ -18,8 +18,19 @@ const Home = ({ posts, setPosts }) => {
     // console.log(posts);
 
     // useEffect hook executes when page is loaded
-    useEffect(loadData, [])
+    useEffect(loadData, []);
 
+    // const fakeData = [...androids, ...cameras, ...laptops];
+
+    // Function to generate posts randomly
+    const shuffle = a => {
+        for (let i = a.length; i; i--) {
+            let j = Math.floor(Math.random() * i);
+            [a[i - 1], a[j]] = [a[j], a[i - 1]];
+        }
+    }
+    posts && shuffle(posts);
+    
     // Material UI Style and Modifications
     const useStyles = makeStyles((theme) => ({
         root: {
@@ -34,6 +45,8 @@ const Home = ({ posts, setPosts }) => {
 
     return (
         <Container>
+            <h2>Total Post Found: {posts && posts.length} </h2>
+            <h2>Randomly Generated Posts: 15</h2>
             <List className={classes.root}>
                 {
                     posts && posts.map(post => <Posts key={post.id} post={post}></Posts>)
