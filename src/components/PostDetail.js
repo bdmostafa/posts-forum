@@ -19,9 +19,14 @@ const PostDetail = () => {
             .then(data => setComments(data))
     }
 
+    // useEffect executes when postId is available/changed
     useEffect(loadData, [postId])
 
+    // console.log(comments);
+
+    // Destructing postDetails properties
     const { title, body } = postDetail;
+
     return (
         <Container>
             <ListItem>
