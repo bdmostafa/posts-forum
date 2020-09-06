@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Posts = ({ post: { id, title, body } }) => {
-    console.log(id)
+    // console.log(id)
     return (
         <div>
             <h2>{title}</h2>
