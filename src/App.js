@@ -1,5 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Header from './components/Home';
+import Home from './components/Home';
+import NoMatch from './components/NoMatch';
+import PostDetail from './components/PostDetail';
+import Footer from './components/Home';
 
 function App() {
   // Store the data
@@ -8,17 +19,35 @@ function App() {
   // Fetch the data
   const loadData = () => {
     fetch('https://jsonplaceholder.typicode.com/posts')
-    .then(res => res.json())
-    .then(data => setposts(data))
+      .then(res => res.json())
+      .then(data => setposts(data))
   }
 
   // useEffect hook executes when page is loaded
   useEffect(loadData, [])
 
   return (
-    <div className="App">
-      {posts && posts.map(post => post.title)}
-    </div>
+    <Router>
+      <Header />
+      <Switch>
+        <Route path="/home">
+          <Home />
+        </Route>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/posts">
+          <Home />
+        </Route>
+        <Route path="/post/:postId">
+          <PostDetail />
+        </Route>
+        <Route path="*">
+          <NoMatch />
+        </Route>
+      </Switch>
+      <Footer />
+    </Router>
   );
 }
 
