@@ -1,6 +1,5 @@
-import React, { useEffect, useContext, useState } from 'react';
+import React, { useEffect } from 'react';
 import Posts from './Posts';
-import { PostContext } from '../App';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import { Container } from '@material-ui/core';

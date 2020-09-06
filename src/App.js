@@ -9,7 +9,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import NoMatch from './components/NoMatch';
 import PostDetail from './components/PostDetail';
-import Footer from './components/Home';
+import Footer from './components/Footer';
 
 export const PostContext = createContext();
 
